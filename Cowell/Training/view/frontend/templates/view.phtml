@@ -1,0 +1,23 @@
+<?php
+/** @var $block \Cowell\Training\Block\StudentView */
+/** @var $student \Cowell\Training\Model\Student */
+$student = $block->getStudent();
+?>
+<h1><?php echo $student->getName() ?></h1>
+
+<div>
+    Giới tính :
+    <?php
+    	if($student->getGender() == 1){
+    		echo "Nam";
+    	}else{
+    		echo "Nữ";
+    	}
+    ?>
+    <br>
+    Date of birth: <?php echo $student->getDob(); ?>
+    <br>
+    Address: <?php echo $student->getAddress(); ?>
+    <br>
+    Email: <?php echo $student->getEmail(); ?>
+</div>

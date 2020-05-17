@@ -1,0 +1,40 @@
+<?php /** @var $block \Cowell\Training\Block\StudentList */ ?>
+<h1><?php echo __('Latest Training Students') ?></h1>
+<div>
+	<table class="table table-dark">
+		<thead>
+			<tr>
+				<th scope="col">Student Id</th>
+				<th scope="col">Name</th>
+				<th scope="col">Gender</th>
+				<th scope="col">Date of birth</th>
+				<th scope="col">Address</th>
+				<th scope="col">Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php /** @var $student \Cowell\Training\Model\Student */ ?>
+			<?php foreach ($block->getStudents() as $student): ?>
+			<tr>
+				<th scope="row"><?php echo $student->getId(); ?></th>
+				<td><a href="<?php echo $student->getSlug(); ?>"><?php echo $student->getName(); ?></a></td>
+				<td>
+				<?php
+					if($student->getGender() == 1){
+						echo "Nam";
+					}else{
+						echo "Nữ";
+					}
+				?>
+				</td>
+				<td><?php echo $student->getDob(); ?></td>
+				<td><?php echo $student->getAddress(); ?></td>
+				<td><?php echo $student->getEmail(); ?></td>
+			</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>
+<div>
+	<?php echo $block->getPagerHtml(); ?>
+</div>
